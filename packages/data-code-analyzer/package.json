@@ -1,0 +1,17 @@
+{
+  "name": "@gi-tcg/data-code-analyzer",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "bun run scripts/index.ts"
+  },
+  "devDependencies": {
+    "@gi-tcg/data": "workspace:*"
+  },
+  "dependencies": {
+    "@gi-tcg/core": "workspace:*",
+    "ts-morph": "^26.0.0"
+  }
+}

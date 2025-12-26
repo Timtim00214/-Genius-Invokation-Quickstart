@@ -1,0 +1,39 @@
+{
+  "name": "@gi-tcg/data-vscode-ext",
+  "displayName": "Genius Invokation TCG Data Code Extension",
+  "description": "Just add magical text decorations to @gi-tcg/data package's source",
+  "publisher": "Guyutongxue",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "type": "commonjs",
+  "categories": [
+    "Other"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {},
+  "scripts": {
+    "vscode:prepublish": "bun run build",
+    "build:method_names": "bun scripts/get_method_names.ts",
+    "build:ts": "tsup",
+    "build": "bun run build:method_names && bun run build:ts",
+    "watch": "bun run build:ts --watch",
+    "package": "bun run build && bun scripts/publish.ts",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "rxjs": "^7.8.1",
+    "@gi-tcg/core": "workspace:*",
+    "@types/vscode": "^1.96.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@vscode/vsce": "^3.2.1"
+  }
+}

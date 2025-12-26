@@ -1,0 +1,25 @@
+.gi-tcg-card-data-viewer {
+
+  height: 100%;
+  width: 100%;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: darkgoldenrod;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    background-clip: padding-box;
+  }
+
+  .skill-icon {
+    filter: invert(75%) sepia(100%) saturate(250%);
+  }
+}
+
+.card-panel {
+  --at-apply: pointer-events-auto max-h-100% overflow-auto bg-yellow-1 b-yellow-8 text-yellow-9 b-solid b-1 rounded-md p-2 w-72 relative;
+}

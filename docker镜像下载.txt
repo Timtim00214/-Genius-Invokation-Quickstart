@@ -1,0 +1,94 @@
+# 删除未完成的镜像
+docker system prune -a
+
+# 重新运行命令
+docker run --name gcg-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+
+
+或：
+
+
+# 先停止并删除失败的容器
+docker rm gcg-postgres
+
+# 配置Docker国内镜像源
+# 右键点击系统托盘Docker图标 → Settings → Docker Engine
+# 添加以下镜像源配置：
+{
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com"
+  ]
+}
+# 点击"Apply & Restart"
+
+
+
+
+
+
+
+检查容器状态
+
+docker ps
+
+
+查看容器日志
+
+docker logs gcg-postgres
+
+
+进入 PostgreSQL 交互界面
+
+# 进入容器内的 PostgreSQL 命令行
+docker exec -it gcg-postgres psql -U postgres
+
+
+
+
+
+
+进入 psql 后可以执行：
+
+-- 显示所有数据库
+\l
+
+-- 创建新数据库
+CREATE DATABASE mydb;
+
+-- 切换到新数据库
+\c mydb
+
+-- 创建表
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100));
+
+-- 退出 psql
+\q
+
+
+
+
+从外部工具连接
+主机: localhost
+
+端口: 5432
+
+用户名: postgres
+
+密码: mysecretpassword
+
+数据库: postgres
+
+
+
+可以使用以下工具连接：
+
+
+pgAdmin（PostgreSQL 官方 GUI）
+
+DBeaver（免费通用数据库工具）
+
+VS Code + PostgreSQL 扩展
+
+TablePlus

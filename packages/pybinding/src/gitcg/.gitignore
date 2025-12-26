@@ -1,0 +1,7 @@
+proto/*.py
+proto/*.pyi
+!proto/__init__.py
+_gitcg_cffi.py
+*.so
+*.dll
+*.dylib

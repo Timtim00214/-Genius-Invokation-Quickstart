@@ -1,0 +1,49 @@
+{
+  "name": "@gi-tcg/server",
+  "private": true,
+  "version": "0.17.4",
+  "type": "module",
+  "scripts": {
+    "dev": "bun ./src/dev.ts",
+    "prisma:generate": "bun prisma generate",
+    "build": "bun run prisma:generate && NODE_ENV=production bun scripts/build.ts",
+    "start": "bun run src/main.ts",
+    "start:prod": "bun run dist/main.js",
+    "check": "tsc",
+    "debug": "nest start --debug --watch"
+  },
+  "imports": {
+    "#prisma/*": "./generated/prisma/*.ts"
+  },
+  "dependencies": {
+    "@fastify/etag": "^5.2.0",
+    "@gi-tcg/assets-manager": "workspace:*",
+    "@gi-tcg/config": "workspace:*",
+    "@gi-tcg/core": "workspace:*",
+    "@gi-tcg/data": "workspace:*",
+    "@gi-tcg/typings": "workspace:*",
+    "@gi-tcg/utils": "workspace:*",
+    "@nestjs/common": "^10.3.9",
+    "@nestjs/core": "^10.3.9",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/platform-fastify": "^10.3.9",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@prisma/adapter-pg": "^7.1.0",
+    "@prisma/client": "^7.1.0",
+    "axios": "^1.7.7",
+    "class-transformer": "^0.5.1",
+    "class-validator": "0.14.1",
+    "mime": "^4.0.6",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "fastify": "^4.29.1",
+    "@gi-tcg/web-client": "workspace:*",
+    "@nestjs/cli": "^10.3.2",
+    "@prisma/dev": "^0.15.0",
+    "get-port": "^7.1.0",
+    "prisma": "^7.1.0"
+  }
+}
